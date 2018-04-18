@@ -1,0 +1,771 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_background"
+    tools:context="com.mawindavic.tictactoegame.GameActivity">
+    <LinearLayout
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="5dp"
+        android:padding="5dp"
+        android:gravity="center"
+        android:background="@drawable/title_background"
+        app:layout_constraintTop_toTopOf="parent">
+        <TextView
+            android:layout_margin="2dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tic"
+            android:textAlignment="center"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textColor="@color/blue"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:typeface="sans"/>
+        <TextView
+            android:layout_margin="2dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tac"
+            android:textAlignment="center"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/yellow"
+            android:typeface="sans"/>
+        <TextView
+            android:layout_margin="2dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/toe"
+            android:textColor="@android:color/white"
+            android:textAlignment="center"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:typeface="sans"/>
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/active_player_indicator_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title">
+
+        <android.support.v7.widget.GridLayout
+            android:id="@+id/game_board"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:padding="5dp"
+            android:visibility="gone"
+            app:alignmentMode="alignBounds"
+            app:columnCount="3"
+            app:rowCount="3"
+            app:useDefaultMargins="false">
+
+            <TextView
+                android:background="@drawable/dark"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:typeface="sans"
+                app:layout_column="0"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_row="0"
+                app:layout_rowWeight="1" />
+
+            <TextView
+                android:background="@drawable/light"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:typeface="sans"
+                app:layout_column="1"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_row="0"
+                app:layout_rowWeight="1" />
+
+            <TextView
+                android:background="@drawable/dark"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:typeface="sans"
+                app:layout_column="2"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_row="0"
+                app:layout_rowWeight="1" />
+
+            <TextView
+                android:background="@drawable/light"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:typeface="sans"
+                app:layout_column="0"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_row="1"
+                app:layout_rowWeight="1" />
+
+            <TextView
+                android:background="@drawable/dark"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:typeface="sans"
+                app:layout_column="1"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_row="1"
+                app:layout_rowWeight="1" />
+
+            <TextView
+                android:background="@drawable/light"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:typeface="sans"
+                app:layout_column="2"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_row="1"
+                app:layout_rowWeight="1" />
+
+            <TextView
+                android:background="@drawable/dark"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:typeface="sans"
+                app:layout_column="0"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_row="2"
+                app:layout_rowWeight="1" />
+
+            <TextView
+                android:background="@drawable/light"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:typeface="sans"
+                app:layout_column="1"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_row="2"
+                app:layout_rowWeight="1" />
+
+            <TextView
+                android:background="@drawable/dark"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:textAppearance="?android:textAppearanceLarge"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:typeface="sans"
+                app:layout_column="2"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_row="2"
+                app:layout_rowWeight="1" />
+        </android.support.v7.widget.GridLayout>
+
+        <android.support.v7.widget.GridLayout
+            android:id="@+id/game_board_5"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:padding="5dp"
+            app:alignmentMode="alignBounds"
+            app:columnCount="5"
+            app:rowCount="5"
+            app:useDefaultMargins="false">
+
+            <TextView
+                android:background="@drawable/dark"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:typeface="sans"
+                app:layout_column="0"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_row="0"
+                app:layout_rowWeight="1" />
+
+            <TextView
+                android:background="@drawable/light"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:typeface="sans"
+                app:layout_column="1"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_row="0"
+                app:layout_rowWeight="1" />
+
+            <TextView
+                android:background="@drawable/dark"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:typeface="sans"
+                app:layout_column="2"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_row="0"
+                app:layout_rowWeight="1" />
+
+            <TextView
+                android:background="@drawable/light"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:typeface="sans"
+                app:layout_column="3"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_row="0"
+                app:layout_rowWeight="1" />
+
+            <TextView
+                android:background="@drawable/dark"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:typeface="sans"
+                app:layout_column="4"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_row="0"
+                app:layout_rowWeight="1" />
+
+            <TextView
+                android:background="@drawable/light"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:typeface="sans"
+                app:layout_column="0"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_row="1"
+                app:layout_rowWeight="1" />
+
+            <TextView
+                android:background="@drawable/dark"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:typeface="sans"
+                app:layout_column="1"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_row="1"
+                app:layout_rowWeight="1" />
+
+            <TextView
+                android:background="@drawable/light"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:typeface="sans"
+                app:layout_column="2"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_row="1"
+                app:layout_rowWeight="1" />
+
+            <TextView
+                android:background="@drawable/dark"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:typeface="sans"
+                app:layout_column="3"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_row="1"
+                app:layout_rowWeight="1" />
+
+            <TextView
+                android:background="@drawable/light"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:typeface="sans"
+                app:layout_column="4"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_row="1"
+                app:layout_rowWeight="1" />
+
+            <TextView
+                android:background="@drawable/dark"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:typeface="sans"
+                app:layout_column="0"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_row="2"
+                app:layout_rowWeight="1" />
+
+            <TextView
+                android:background="@drawable/light"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:typeface="sans"
+                app:layout_column="1"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_row="2"
+                app:layout_rowWeight="1" />
+
+            <TextView
+                android:background="@drawable/dark"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:typeface="sans"
+                app:layout_column="2"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_row="2"
+                app:layout_rowWeight="1" />
+
+            <TextView
+                android:background="@drawable/light"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:typeface="sans"
+                app:layout_column="3"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_row="2"
+                app:layout_rowWeight="1" />
+
+            <TextView
+                android:background="@drawable/dark"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:typeface="sans"
+                app:layout_column="4"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_row="2"
+                app:layout_rowWeight="1" />
+
+            <TextView
+                android:background="@drawable/light"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:typeface="sans"
+                app:layout_column="0"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_row="3"
+                app:layout_rowWeight="1" />
+
+            <TextView
+                android:background="@drawable/dark"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:typeface="sans"
+                app:layout_column="1"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_row="3"
+                app:layout_rowWeight="1" />
+
+            <TextView
+                android:background="@drawable/light"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:typeface="sans"
+                app:layout_column="2"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_row="3"
+                app:layout_rowWeight="1" />
+
+            <TextView
+                android:background="@drawable/dark"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:typeface="sans"
+                app:layout_column="3"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_row="3"
+                app:layout_rowWeight="1" />
+
+            <TextView
+                android:background="@drawable/light"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:typeface="sans"
+                app:layout_column="4"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_row="3"
+                app:layout_rowWeight="1" />
+
+            <TextView
+                android:background="@drawable/dark"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:typeface="sans"
+                app:layout_column="0"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_row="4"
+                app:layout_rowWeight="1" />
+
+            <TextView
+                android:background="@drawable/light"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:typeface="sans"
+                app:layout_column="1"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_row="4"
+                app:layout_rowWeight="1" />
+
+            <TextView
+                android:background="@drawable/dark"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:typeface="sans"
+                app:layout_column="2"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_row="4"
+                app:layout_rowWeight="1" />
+
+            <TextView
+                android:background="@drawable/light"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:typeface="sans"
+                app:layout_column="3"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_row="4"
+                app:layout_rowWeight="1" />
+
+            <TextView
+                android:background="@drawable/dark"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:typeface="sans"
+                app:layout_column="4"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_row="4"
+                app:layout_rowWeight="1" />
+
+        </android.support.v7.widget.GridLayout>
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/active_player_indicator_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/main_background"
+        android:padding="5dp"
+        android:text="@string/active_player"
+        android:textAlignment="center"
+        android:textAppearance="?android:textAppearanceSmall"
+        android:textColor="@color/blue"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:typeface="sans"
+        app:layout_constraintBottom_toTopOf="@id/active_player_indicator" />
+
+    <LinearLayout
+        android:id="@+id/active_player_indicator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/main_background_inverse"
+        android:orientation="vertical"
+        android:padding="2dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <Button
+                android:id="@+id/player1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:background="@drawable/active_player_background"
+                android:clickable="false"
+                android:gravity="center"
+                android:textAllCaps="true"
+                android:textAppearance="?android:textAppearanceLarge"
+                android:textColor="@color/red"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:typeface="monospace"
+                tools:ignore="ButtonStyle" />
+
+            <Button
+                android:id="@+id/player2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:background="@drawable/inactive_player_background"
+                android:clickable="false"
+                android:gravity="center"
+                android:textAllCaps="true"
+                android:textAppearance="?android:textAppearanceLarge"
+                android:textColor="@color/green"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:typeface="monospace"
+                tools:ignore="ButtonStyle" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="2dp"
+            android:background="@drawable/footer_background"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="2dp"
+            android:weightSum="1">
+            <android.support.v7.widget.GridLayout
+                android:background="@android:color/white"
+                android:layout_weight=".65"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:alignmentMode="alignBounds"
+                app:columnCount="2"
+                app:rowCount="2"
+                app:useDefaultMargins="false">
+                <TextView
+                    android:id="@+id/games_count"
+                    android:gravity="center_horizontal"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:textStyle="bold"
+                    app:layout_column="0"
+                    app:layout_columnWeight="1"
+                    app:layout_gravity="fill"
+                    app:layout_row="0"
+                    app:layout_rowWeight="1"/>
+                <TextView
+                    android:id="@+id/game_draws"
+                    android:gravity="center_horizontal"
+                    android:padding="2dp"
+                    android:textStyle="bold"
+                    android:typeface="monospace"
+                    app:layout_column="0"
+                    app:layout_columnWeight="1"
+                    app:layout_gravity="fill"
+                    app:layout_row="1"
+                    app:layout_rowWeight="1"/>
+                <TextView
+                    android:id="@+id/player_1_score"
+                    android:gravity="center_horizontal"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:textStyle="bold"
+                    app:layout_column="1"
+                    app:layout_columnWeight="1"
+                    app:layout_gravity="fill"
+                    app:layout_row="0"
+                    app:layout_rowWeight="1"/>
+                <TextView
+                    android:id="@+id/player_2_score"
+                    android:gravity="center_horizontal"
+                    android:padding="2dp"
+                    android:textStyle="bold"
+                    android:typeface="monospace"
+                    app:layout_column="1"
+                    app:layout_columnWeight="1"
+                    app:layout_gravity="fill"
+                    app:layout_row="1"
+                    app:layout_rowWeight="1"/>
+
+            </android.support.v7.widget.GridLayout>
+          <!--  <LinearLayout
+                android:background="@android:color/white"
+                android:padding="2dp"
+                android:layout_weight=".65"
+                android:layout_width="0dp"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/player_1_score"
+                    android:gravity="center_horizontal"
+                    android:padding="2dp"
+                    android:typeface="monospace"
+                    android:textStyle="bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/player_2_score"
+                    android:gravity="center_horizontal"
+                    android:padding="2dp"
+                    android:textStyle="bold"
+                    android:typeface="monospace"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>-->
+            <Button
+                android:id="@+id/reset_btn"
+                android:layout_margin="2dp"
+                android:layout_weight=".35"
+                android:layout_width="0dp"
+                android:text="@string/reset"
+                android:textColor="@color/red"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>

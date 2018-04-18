@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_background"
+    android:padding="5dp"
+    tools:context="com.mawindavic.tictactoegame.GameOverActivity">
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:padding="5dp"
+        app:layout_constraintBottom_toTopOf="@id/nav_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="3dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/game_over_image_bg"
+            android:contentDescription="@string/logo"
+            android:foreground="@drawable/game_over_image"
+            android:padding="8dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/draw" />
+
+        <TextView
+            android:id="@+id/msg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:textSize="32sp"
+            android:typeface="monospace" />
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/nav_btn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/retry_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/retry_btn_background"
+            android:text="@string/retry"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:textStyle="bold"
+            android:typeface="sans" />
+
+        <Button
+            android:id="@+id/quit_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/quit_btn_background"
+            android:text="@string/quit"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:textStyle="bold"
+            android:typeface="sans" />
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>
